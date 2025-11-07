@@ -1,0 +1,90 @@
+/* --- Login Page Specific Styles (Modern Two-Column Layout) --- */
+.login-section {
+    min-height: calc(100vh - 170px); /* Fill the viewport height minus header/footer height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Remove default padding as container handles spacing */
+}
+
+.login-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Form takes slightly more space (60/40 split) */
+    max-width: 900px;
+    width: 90%;
+    margin: 40px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background-color: var(--white);
+}
+
+.login-form-area {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form-area h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.login-form-area .subtitle {
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.login-form {
+    /* Reuses .form-group styles from signup CSS */
+    text-align: left;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.signup-prompt {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.login-visual-area {
+    background-color: var(--primary-color);
+    background-image: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* Blue gradient background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+}
+
+.visual-content h3 {
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.visual-content p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Responsive Adjustments for Login --- */
+@media (max-width: 768px) {
+    .login-container {
+        grid-template-columns: 1fr; /* Stack columns */
+        width: 100%;
+        max-width: 500px;
+        margin: 20px;
+    }
+    .login-visual-area {
+        display: none; /* Hide the visual area on small screens for simplicity */
+    }
+}
