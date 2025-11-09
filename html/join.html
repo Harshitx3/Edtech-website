@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join EduConnect</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="auth-background">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i> EduConnect
+            </div>
+            <nav class="nav" id="navbar">
+                <a href="/">Home</a>
+                <a href="/courses">Courses</a>
+                <a href="/mentors">Mentors</a>
+                <a href="/testimonials">Success Stories</a>
+                <a href="/contact">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="/join" class="btn btn-primary">Join Now</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Join Container -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Join EduConnect</h1>
+                <p>Start your learning journey with personalized information</p>
+            </div>
+
+            <form id="joinForm" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                        </div>
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                        </div>
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="education">Education Level</label>
+                    <div class="input-group">
+                        <i class="fas fa-graduation-cap"></i>
+                        <select id="education" name="education" required>
+                            <option value="">Select your education level</option>
+                            <option value="high-school">High School</option>
+                            <option value="bachelor">Bachelor's Degree</option>
+                            <option value="master">Master's Degree</option>
+                            <option value="phd">PhD</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <span class="error-message" id="educationError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="interests">Learning Interests</label>
+                    <div class="input-group">
+                        <i class="fas fa-book"></i>
+                        <textarea id="interests" name="interests" rows="3" placeholder="Tell us about your learning interests and goals"></textarea>
+                    </div>
+                    <span class="error-message" id="interestsError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Experience Level</label>
+                    <div class="input-group">
+                        <i class="fas fa-chart-line"></i>
+                        <select id="experience" name="experience" required>
+                            <option value="">Select your experience level</option>
+                            <option value="beginner">Beginner (0-1 years)</option>
+                            <option value="intermediate">Intermediate (1-3 years)</option>
+                            <option value="advanced">Advanced (3+ years)</option>
+                        </select>
+                    </div>
+                    <span class="error-message" id="experienceError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="goals">Career Goals</label>
+                    <div class="input-group">
+                        <i class="fas fa-target"></i>
+                        <textarea id="goals" name="goals" rows="3" placeholder="What are your career goals? What do you want to achieve?"></textarea>
+                    </div>
+                    <span class="error-message" id="goalsError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <span class="checkmark"></span>
+                        Send me personalized course recommendations and learning tips
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="updates" name="updates">
+                        <span class="checkmark"></span>
+                        Keep me updated about new courses and features
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="btn-text">Get Started</span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="#" onclick="showLoginModal()">Sign in</a></p>
+            </div>
+        </div>
+
+        <!-- Additional Info Card -->
+        <div class="auth-info-card">
+            <div class="info-content">
+                <h3>Personalized Learning Experience</h3>
+                <div class="info-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Custom course recommendations</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Personalized learning paths</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Expert mentorship matching</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Progress tracking and insights</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Career guidance and support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign In</h2>
+                <button type="button" class="close-modal" onclick="hideLoginModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="loginForm" class="modal-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" name="loginEmail" required placeholder="Enter your email">
+                    </div>
+                    <span class="error-message" id="loginEmailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" name="loginPassword" required placeholder="Enter your password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="loginPasswordError"></span>
+                </div>
+
+                <div class="form-group form-row">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-link" onclick="showForgotPasswordModal()">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="btn-text">Sign In</span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Reset Password</h2>
+                <button type="button" class="close-modal" onclick="hideForgotPasswordModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="forgotPasswordForm" class="modal-form">
+                <div class="form-group">
+                    <label for="resetEmail">Email Address</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="resetEmail" name="resetEmail" required placeholder="Enter your email">
+                    </div>
+                    <span class="error-message" id="resetEmailError"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="btn-text">Send Reset Link</span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Welcome to EduConnect!</h2>
+                <button type="button" class="close-modal" onclick="hideSuccessModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Thank You for Joining!</h3>
+                <p>We've received your information and will create a personalized learning experience just for you.</p>
+                <p>You'll receive an email with your login details shortly.</p>
+                <button type="button" class="btn btn-primary" onclick="redirectToDashboard()">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error/Success Messages -->
+    <div id="authMessages" class="auth-messages"></div>
+
+    <script src="/js/navbar.js"></script>
+    <script src="/js/join.js"></script>
+</body>
+</html>

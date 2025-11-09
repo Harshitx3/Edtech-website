@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Learnify</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="auth-background">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Learnify
+            </a>
+            
+            <nav class="nav" id="nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/courses" class="nav-link">Courses</a>
+                <a href="/mentors" class="nav-link">Mentors</a>
+                <a href="/testimonials" class="nav-link">Success Stories</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="/login" class="btn btn-outline">Login</a>
+                <a href="/sign" class="btn btn-primary">Sign Up</a>
+            </div>
+            
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Signup Container -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Join Learnify</h1>
+                <p>Start your learning journey with thousands of students</p>
+            </div>
+
+            <form id="signupForm" class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                        </div>
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                        </div>
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                        <i class="fas fa-at"></i>
+                        <input type="text" id="username" name="username" required placeholder="Choose a username">
+                    </div>
+                    <span class="error-message" id="usernameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" required placeholder="Create a password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength" id="passwordStrength"></div>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                        <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="confirmPasswordError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="role">I am a</label>
+                    <div class="input-group">
+                        <i class="fas fa-user-tag"></i>
+                        <select id="role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="professional">Professional</option>
+                            <option value="educator">Educator</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <span class="error-message" id="roleError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#" onclick="showTermsModal()">Terms of Service</a> and <a href="#" onclick="showPrivacyModal()">Privacy Policy</a>
+                    </label>
+                    <span class="error-message" id="termsError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <span class="checkmark"></span>
+                        Send me learning tips and course updates
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span class="btn-text">Create Account</span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+            </form>
+
+            <!-- Social Signup -->
+            <div class="social-login">
+                <div class="divider">
+                    <span>or sign up with</span>
+                </div>
+                <div class="social-buttons">
+                    <button type="button" class="social-btn google" onclick="socialSignup('google')">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button type="button" class="social-btn github" onclick="socialSignup('github')">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </button>
+                    <button type="button" class="social-btn linkedin" onclick="socialSignup('linkedin')">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </button>
+                </div>
+            </div>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Sign in</a></p>
+            </div>
+        </div>
+
+        <!-- Additional Info Card -->
+        <div class="auth-info-card">
+            <div class="info-content">
+                <h3>Join 10,000+ Learners</h3>
+                <div class="info-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Free access to basic courses</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Personalized learning recommendations</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Connect with expert mentors</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Earn industry-recognized certificates</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="termsModal" class="modal" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Terms of Service</h2>
+                <button type="button" class="close-modal" onclick="hideTermsModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>1. Acceptance of Terms</h3>
+                <p>By accessing and using Learnify, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                
+                <h3>2. Use License</h3>
+                <p>Permission is granted to temporarily download one copy of the materials (information or software) on Learnify's website for personal, non-commercial transitory viewing only.</p>
+                
+                <h3>3. Disclaimer</h3>
+                <p>The materials on Learnify's website are provided on an 'as is' basis. Learnify makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+                
+                <h3>4. Limitations</h3>
+                <p>In no event shall Learnify or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Learnify's website.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div id="privacyModal" class="modal" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Privacy Policy</h2>
+                <button type="button" class="close-modal" onclick="hidePrivacyModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>1. Information We Collect</h3>
+                <p>We collect information you provide directly to us, such as when you create an account, enroll in a course, or contact us for support.</p>
+                
+                <h3>2. How We Use Your Information</h3>
+                <p>We use the information we collect to provide, maintain, and improve our services, process transactions, send communications, and provide customer support.</p>
+                
+                <h3>3. Information Sharing</h3>
+                <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.</p>
+                
+                <h3>4. Data Security</h3>
+                <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error/Success Messages -->
+    <div id="authMessages" class="auth-messages"></div>
+
+    <script src="/js/navbar.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // Initialize signup page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAuthPage();
+            
+            // Check if user is already logged in
+            const token = localStorage.getItem('token');
+            if (token) {
+                window.location.href = 'index.html';
+                return;
+            }
+        });
+
+        // Form submission
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            await handleSignup();
+        });
+
+        // Password strength indicator
+        document.getElementById('password').addEventListener('input', function() {
+            checkPasswordStrength(this.value);
+        });
+
+        // Real-time validation
+        document.getElementById('username').addEventListener('blur', validateUsername);
+        document.getElementById('email').addEventListener('blur', validateEmail);
+        document.getElementById('confirmPassword').addEventListener('input', validatePasswordMatch);
+    </script>
+</body>
+</html>

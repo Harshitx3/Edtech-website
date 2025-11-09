@@ -1,0 +1,77 @@
+/* Courses Page Specific Styles */
+
+.courses-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.search-and-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.search-bar {
+    display: flex;
+    width: 60%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    border-radius: 0 5px 5px 0;
+}
+
+.filter-options select {
+    padding: 12px;
+    margin-left: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+}
+
+.course-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.course-card .meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-and-filter {
+        flex-direction: column;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

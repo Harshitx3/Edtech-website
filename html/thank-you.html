@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Enrolling - Learnify</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/thank-you.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i> Learnify
+            </div>
+            <nav class="nav" id="navbar">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/courses" class="nav-link">Courses</a>
+                <a href="/mentors" class="nav-link">Mentors</a>
+                <a href="/testimonials" class="nav-link">Success Stories</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="/sign" class="btn btn-primary">Join Now</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="thank-you-page">
+        <div class="container">
+            <div class="thank-you-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Thank You for Enrolling!</h2>
+                <p>Congratulations! You have successfully enrolled in the course.</p>
+                <div class="enrollment-details">
+                    <p><strong>Enrollment ID:</strong> <span id="enrollmentId"></span></p>
+                    <p><strong>Course:</strong> <span id="courseTitle"></span></p>
+                    <p><strong>Amount Paid:</strong> <span id="amountPaid"></span></p>
+                </div>
+                <div class="next-steps">
+                    <h3>What's Next?</h3>
+                    <ul>
+                        <li>Check your email for confirmation and login details</li>
+                        <li>Access your course dashboard to start learning</li>
+                        <li>Join our community forum to connect with other students</li>
+                    </ul>
+                </div>
+                <a href="/dashboard" class="btn btn-primary">Go to Dashboard</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col footer-branding">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i> Learnify
+                </div>
+                <p>Unlock your potential with interactive learning.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <address>
+                    123 Learning Lane, Knowledge City, KC 98765<br>
+                    Email: info@learnify.com<br>
+                    Phone: +91 98765 43210
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Learnify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/navbar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById('enrollmentId').textContent = params.get('enrollmentId') || 'N/A';
+            document.getElementById('courseTitle').textContent = params.get('courseTitle') || 'N/A';
+            document.getElementById('amountPaid').textContent = `₹${params.get('amount') || '0.00'}`;
+        });
+    </script>
+</body>
+</html>

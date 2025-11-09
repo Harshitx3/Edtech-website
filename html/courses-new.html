@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - EdTech Platform</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/courses-new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i> Learnify
+            </div>
+            <nav class="nav" id="navbar">
+                <a href="/">Home</a>
+                <a href="/courses-new" class="active">Courses</a>
+                <a href="/mentors">Mentors</a>
+                <a href="/testimonials">Testimonials</a>
+                <a href="/contact">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="/join" class="btn btn-primary">Join Now</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="courses-hero">
+        <div class="container">
+            <h1>Explore Our Courses</h1>
+            <p>Discover thousands of courses from expert instructors and advance your skills</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-input-group">
+                    <input type="text" id="courseSearch" class="search-input" placeholder="Search courses...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <select id="sortBy" class="sort-select">
+                    <option value="relevance">Sort by Relevance</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="courses-main">
+        <div class="container">
+            <div class="courses-container">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3>Filters</h3>
+                        <button class="clear-filters" id="clearFilters">Clear All</button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4>Category</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="Web Development">
+                                <span>Web Development</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="Data Science">
+                                <span>Data Science</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="Mobile Development">
+                                <span>Mobile Development</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="Design">
+                                <span>Design</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="Security">
+                                <span>Security</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="category" value="Cloud Computing">
+                                <span>Cloud Computing</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <div class="price-range-container">
+                            <input type="range" id="priceRange" min="0" max="20000" value="20000" step="500">
+                            <div class="price-labels">
+                                <span>₹0</span>
+                                <span id="maxPrice">₹20,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duration Filter -->
+                    <div class="filter-group">
+                        <h4>Duration</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="duration" value="0-10">
+                                <span>0-10 hours</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="duration" value="10-20">
+                                <span>10-20 hours</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="duration" value="20-30">
+                                <span>20-30 hours</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="duration" value="30+">
+                                <span>30+ hours</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Level Filter -->
+                    <div class="filter-group">
+                        <h4>Level</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="level" value="Beginner">
+                                <span>Beginner</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="level" value="Intermediate">
+                                <span>Intermediate</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="level" value="Advanced">
+                                <span>Advanced</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Course Grid -->
+                <main class="courses-content">
+                    <div class="results-header">
+                        <h2>Available Courses</h2>
+                        <span id="resultsCount">10 courses found</span>
+                    </div>
+                    <div id="course-grid" class="course-grid">
+                        <!-- Course cards will be dynamically inserted here -->
+                    </div>
+                    <div id="noResults" class="no-results" style="display: none;">
+                        <i class="fas fa-search"></i>
+                        <h3>No courses found</h3>
+                        <p>Try adjusting your search criteria or filters</p>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Modal -->
+    <div id="purchase-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Enroll in Course</h3>
+                <button class="close-button">&times;</button>
+            </div>
+            <form id="purchase-form" class="purchase-form">
+                <div class="form-group">
+                    <label for="course-title">Course:</label>
+                    <input type="text" id="course-title" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="course-price">Price:</label>
+                    <input type="text" id="course-price" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="education">Education Level</label>
+                    <select id="education">
+                        <option value="">Select your education level</option>
+                        <option value="high-school">High School</option>
+                        <option value="bachelor">Bachelor's Degree</option>
+                        <option value="master">Master's Degree</option>
+                        <option value="phd">PhD</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Experience Level</label>
+                    <select id="experience">
+                        <option value="">Select your experience level</option>
+                        <option value="beginner">Beginner (0-1 years)</option>
+                        <option value="intermediate">Intermediate (1-3 years)</option>
+                        <option value="advanced">Advanced (3+ years)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="goals">Learning Goals</label>
+                    <textarea id="goals" rows="3" placeholder="What do you hope to achieve with this course?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" required>
+                        <span>I agree to the terms and conditions and privacy policy</span>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button">Cancel</button>
+                    <button type="submit" class="submit-button">Enroll Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Enrollment Successful!</h3>
+            <p>Thank you for enrolling! You will receive a confirmation email shortly with your course access details.</p>
+            <button class="success-button" onclick="closeSuccessModal()">Continue</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col footer-branding">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i> EduConnect
+                </div>
+                <p>Connecting learners with quality educational content.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <address>
+                    123 Learning Lane, Knowledge City, KC 98765<br>
+                    Email: info@educonnect.com<br>
+                    Phone: +1 (555) 123-4567
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 EduConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/courses-new.js"></script>
+    <script>
+        // Mobile navbar toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navbar = document.getElementById('navbar');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+/* Mentors Page Specific Styles */
+
+.mentors-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.mentor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.mentor-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.mentor-card:hover {
+    transform: translateY(-10px);
+}
+
+.mentor-card .photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+}
+
+.mentor-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.mentor-card .role {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.mentor-card .expertise {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 20px;
+}
